@@ -19,6 +19,10 @@ async function handleSubmit(event) {
     // halt refress
     event.preventDefault();
     // grab submitted url text
+    const imageNode = document.getElementById("images");
+    imageNode.innerHTML = '';
+    const weatherNode = document.getElementById("weather-results");
+    weatherNode.innerHTML = '';
     const myNode = document.getElementById("results");
     myNode.innerHTML = '';
     let formText = document.getElementById('url').value
@@ -128,25 +132,35 @@ const setHtml = (newObject, dateInput) => {
 
 const setWeatherHtml = (newerObject) => {
     console.log(newerObject.length)
+    let selected = document.getElementById("multiday").checked;
+    console.log('selector in function', selected)
     let dateInput = document.getElementById('datepicker').value
-    console.log('weather function', dateInput)
     let month = dateInput[0]+ dateInput[1]
     let day = dateInput[3] + dateInput[4]
     let year = dateInput[6] + dateInput[7] + dateInput[8] + dateInput[9]
     let newDate = year + '-' + month + '-' + day
     console.log(month)
     for (let i = 0; i < newerObject.length; i++) {
-        if (newerObject[i].valid_date === newDate) {
-        console.log(newerObject[i].valid_date, newDate, 'VICTORY')
-        var para = document.createElement("p");
-        para.id = 'wResult';
-        var node = document.createTextNode(`Day-${newerObject[i].valid_date}, low temp-${newerObject[i].low_temp}, high temp-${newerObject[i].max_temp}`);
-        para.appendChild(node);
-        var element = document.getElementById("weather-results");
-        element.appendChild(para);
+        if (newerObject[i].valid_date === newDate && selected === true) {
+            for (let j = i - 1; j <= i+1; j++) {
+                var para = document.createElement("p");
+                para.id = 'wResult';
+                var node = document.createTextNode(`Day-${newerObject[j].valid_date}, low temp-${newerObject[j].low_temp}, high temp-${newerObject[j].max_temp}`);
+                para.appendChild(node);
+                var element = document.getElementById("weather-results");
+                element.appendChild(para);
+            }
         } else {
-            console.log(newDate, newerObject[i].valid_date)
-        }
+            if (newerObject[i].valid_date === newDate && selected !== true) {
+            console.log('in else', i)
+                var para = document.createElement("p");
+                para.id = 'wResult';
+                var node = document.createTextNode(`Day-${newerObject[i].valid_date}, low temp-${newerObject[i].low_temp}, high temp-${newerObject[i].max_temp}`);
+                para.appendChild(node);
+                var element = document.getElementById("weather-results");
+                element.appendChild(para);
+            }
+        } 
     }
 }
 // const setNewLine = () => {
