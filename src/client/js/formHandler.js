@@ -54,15 +54,13 @@ async function handleSubmit(event) {
 }
 async function locationSelect(object) {
     // selected location initiates call for image and weather forecast
+    // clear prior images and forecast results if a new location is selected from prior search
     const weatherNode = document.getElementById("weather-results");
     weatherNode.innerHTML = '';
+    const imageNode = document.getElementById("images");
+    imageNode.innerHTML = '';
     console.log('inside locationselect', object)
     location = object.placeName
-    // remove old weather forcast results is new search is implemented from prior search outcomes
-    if (document.getElementById("wResult")){
-        const weatherNode = document.getElementById("wResult");
-        weatherNode.innerHTML = '';
-        }
     // selected location sent to pixabay and then weather bit api
     if(object) {
         await postData('http://localhost:8080/pixabay-api', {url: object.placeName});
