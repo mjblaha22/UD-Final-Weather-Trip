@@ -54,6 +54,8 @@ async function handleSubmit(event) {
 }
 async function locationSelect(object) {
     // halt refress
+    const weatherNode = document.getElementById("weather-results");
+    weatherNode.innerHTML = '';
     console.log('inside locationselect', object)
     location = object.placeName
     if (document.getElementById("wResult")){

@@ -43,9 +43,12 @@
               type="text"
               name="input"
               value=""
-              placeholder="Type location here"
+              placeholder="Type city here for possible results"
             />
-            <p>Date: <input type="text" id="datepicker" /></p>
+            <p>
+              Date:
+              <input type="text" id="datepicker" placeholder="select date" />
+            </p>
             <p>
               Would you like to see the day before and after?<input
                 type="checkbox"
@@ -57,16 +60,18 @@
         </section>
       </div>
       <div>
-        <section class="cityResults" id="results"></section>
+        <section class="cityResults" id="results">City Search Results</section>
       </div>
-      <div>
+      <div class="center-text">
         <section class="imageResults" id="images"></section>
         <section id="weather-results"></section>
       </div>
       <!-- </div> -->
     </main>
     <footer>
-      <p>Footer</p>
+      <div class="center-text">
+        <p>Written by Michael Blaha</p>
+      </div>
     </footer>
 
     <!-- dam deprecated serviceworker/workbox!! breaks everything-->
