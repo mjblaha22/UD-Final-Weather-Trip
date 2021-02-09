@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Travel App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <h1>Weather Vacation App</h1>
+      </div>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>jQuery UI Datepicker - Default functionality</title>
+      <link
+        rel="stylesheet"
+        href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      />
+      <link rel="stylesheet" href="/resources/demos/style.css" />
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+        $(function () {
+          $("#datepicker").datepicker();
+        });
+      </script>
+    </header>
+
+    <main>
+      <p class="">Type or Paste in the place you want to go</p>
+      <section>
+        <form class="" onsubmit="return Client.handleSubmit(event)">
+          <input
+            id="url"
+            type="text"
+            name="input"
+            value=""
+            placeholder="Type location here"
+          />
+          <p>Date: <input type="text" id="datepicker" /></p>
+          <input type="submit" name="" value="submit" />
+        </form>
+      </section>
+
+      <section class="cityResults" id="results"></section>
+      <section class="imageResults" id="images"></section>
+      <section id="weather-results"></section>
+    </main>
+    <footer>
+      <p>Footer</p>
+    </footer>
+
+    <!-- dam deprecated serviceworker/workbox!! breaks everything-->
+
+    <script>
+      // Check that service workers are supported -->
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant -->
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
+    <script src="./index.js"></script>
+    <!-- <script src="./main.js"></script> -->
+  </body>
+</html>
