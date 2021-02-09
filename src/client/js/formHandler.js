@@ -1,4 +1,4 @@
-import { checker } from './checker.js'
+// import { checker } from './checker.js'
 // set global variable
 let newObject
 let newerObject
@@ -53,20 +53,17 @@ async function handleSubmit(event) {
     }
 }
 async function locationSelect(object) {
-    // halt refress
+    // selected location initiates call for image and weather forecast
     const weatherNode = document.getElementById("weather-results");
     weatherNode.innerHTML = '';
     console.log('inside locationselect', object)
     location = object.placeName
+    // remove old weather forcast results is new search is implemented from prior search outcomes
     if (document.getElementById("wResult")){
         const weatherNode = document.getElementById("wResult");
         weatherNode.innerHTML = '';
         }
-    // grab submitted url text
-    // let formText = document.getElementById('url').value
-    // run url general expression check
-    // const check = checker(formText)
-    // if check is good, run post and get calls. then post outcome to ui
+    // selected location sent to pixabay and then weather bit api
     if(object) {
         await postData('http://localhost:8080/pixabay-api', {url: object.placeName});
         await fetch('/pixabay-api')
@@ -74,7 +71,7 @@ async function locationSelect(object) {
         .then(json => pixabayObject = json);
         console.log('from endpoint', pixabayObject)
         setPixabayHtml(pixabayObject)
-
+        // weather api
         await postData('http://localhost:8080/weather-bit-api', {url: object});
         await fetch('/weather-bit-api')
         .then(response => response.json())
@@ -84,17 +81,7 @@ async function locationSelect(object) {
         
     // if check is bad alert and populate default failed output
     } else {
-        alert('not a valid URL.');
-        const errorOutcome = { 
-            status: 'NA',
-            model: 'NA',
-            score_tag: 'NONE',
-            agreement: "NA",
-            subjectivity: "NA",
-            confidence: "NA",
-            irony: "NA"
-        } 
-        setHtml(errorOutcome)
+        alert('not a valid location.');
     }
 }
 
