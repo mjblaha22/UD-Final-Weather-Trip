@@ -11,7 +11,9 @@ input {
   line-height: 16px;
   margin: 10px 0;
 }
-
+.center-text {
+  text-align: center;
+}
 .cityResults {
   display: flex;
   flex-direction: column;

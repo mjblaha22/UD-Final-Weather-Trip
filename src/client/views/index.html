@@ -31,24 +31,39 @@
     </header>
 
     <main>
-      <p class="">Type or Paste in the place you want to go</p>
-      <section>
-        <form class="" onsubmit="return Client.handleSubmit(event)">
-          <input
-            id="url"
-            type="text"
-            name="input"
-            value=""
-            placeholder="Type location here"
-          />
-          <p>Date: <input type="text" id="datepicker" /></p>
-          <input type="submit" name="" value="submit" />
-        </form>
-      </section>
-
-      <section class="cityResults" id="results"></section>
-      <section class="imageResults" id="images"></section>
-      <section id="weather-results"></section>
+      <!-- <div class="container"> -->
+      <div>
+        <div class="center-text">
+          <p class="">Type or Paste in the place you want to go</p>
+        </div>
+        <section>
+          <form class="" onsubmit="return Client.handleSubmit(event)">
+            <input
+              id="url"
+              type="text"
+              name="input"
+              value=""
+              placeholder="Type location here"
+            />
+            <p>Date: <input type="text" id="datepicker" /></p>
+            <p>
+              Would you like to see the day before and after?<input
+                type="checkbox"
+                id="multiday"
+              />
+            </p>
+            <input type="submit" name="" value="submit" />
+          </form>
+        </section>
+      </div>
+      <div>
+        <section class="cityResults" id="results"></section>
+      </div>
+      <div>
+        <section class="imageResults" id="images"></section>
+        <section id="weather-results"></section>
+      </div>
+      <!-- </div> -->
     </main>
     <footer>
       <p>Footer</p>
