@@ -4,7 +4,15 @@ let newerObject
 let pixabayObject
 let location
 // 
-
+function checkCity(cityInput){
+   var letters = /^[A-Za-z]+$/;
+   if(cityInput.match(letters)){
+        return true;
+    } else {
+        alert("Please input only letter for City");
+        return false;
+    }
+}
 // sending a city name and country to get info
 
 
@@ -20,8 +28,10 @@ async function handleSubmit(event) {
     myNode.innerHTML = '';
     // grab submitted city name text
     let formText = document.getElementById('city').value
+    let check = checkCity(formText)
+    console.log('checking', check)
     // if there is text in the city search to submit run api fetch
-    if(formText) {
+    if(check) {
         await postData('http://localhost:8080/geonames-api', {url: formText});
         await fetch('/geonames-api')
         .then(response => response.json())
