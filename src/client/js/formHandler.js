@@ -41,7 +41,6 @@ async function locationSelect(object) {
     weatherNode.innerHTML = '';
     const imageNode = document.getElementById("images");
     imageNode.innerHTML = '';
-    console.log('inside locationselect', object)
     location = object.placeName
     // selected location sent to pixabay and then weather bit api
     if(object) {
@@ -56,7 +55,6 @@ async function locationSelect(object) {
         await fetch('/weather-bit-api')
         .then(response => response.json())
         .then(json => newerObject = json);
-        console.log('from endpoint', newerObject)
         setWeatherHtml(newerObject)
         
     // if check is bad alert and populate default failed output
@@ -83,8 +81,7 @@ const postData = async (url = "", data = {}) => {
     }
 };
 // set positive and negative results to ui
-const setHtml = (newObject, dateInput) => {
-    console.log(newObject.length)
+const setHtml = (newObject) => {
     for (let i = 0; i < newObject.length; i++) {
         console.log(newObject[i])
         var para = document.createElement("button");
@@ -132,22 +129,14 @@ const setWeatherHtml = (newerObject) => {
         } 
     }
 }
-// const setNewLine = () => {
-//     var newLine = document.createElement('br');
-//     var element = document.getElementById("weather-results");
-//     element.appendChild(newLine);
-// }
+// create images from pixabay in ui
 const setPixabayHtml = (pixabayObject) => {
-    console.log(pixabayObject)
     if (document.getElementById("Image")){
     const imageNode = document.getElementById("Image");
     imageNode.innerHTML = '';
     }
     let picsArray = pixabayObject.hits
     let imageIndex = Math.floor(Math.random() * picsArray.length)
-    // for (let i = 0; i < picsArray.length; i++) {
-        // console.log(picsArray[i])
-        // console. log(picsArray[i].user)
     var para = document.createElement("img");
     para.id = `Image`;
     para.className = 'imageBox'
