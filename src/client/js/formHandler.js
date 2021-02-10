@@ -95,7 +95,7 @@ const setHtml = (newObject) => {
         element.appendChild(para);
     }
 }
-
+// create html to show weather forcast from selection
 const setWeatherHtml = (newerObject) => {
     console.log(newerObject.length)
     let selected = document.getElementById("multiday").checked;
@@ -146,7 +146,5 @@ const setPixabayHtml = (pixabayObject) => {
     var element = document.getElementById("images");
     element.appendChild(para);
     document.getElementById(para.id).src = picsArray[imageIndex].largeImageURL;
-    // }
 }
-// export function handle
 export { handleSubmit }
