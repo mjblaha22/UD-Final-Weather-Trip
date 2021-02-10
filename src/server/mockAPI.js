@@ -1,7 +1,14 @@
-let json = {
-    'title': 'test json response',
-    'message': 'this is a message',
-    'time': 'now'
-}
+// import { Server } from '../server/index';
+// import * as http from 'http';
 
-module.exports = json
+// jest.mock('http', () => ({
+//   createServer: jest.fn(() => ({ listen: jest.fn() })),
+// }));
+
+// describe('Server', () => {
+
+//     it('should create server on port 8080', () => {
+//         const server = new Server().startServer();
+//         expect(http.createServer).toBeCalled();
+//     });
+// });

@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^0.21.1",
     "babel-preset-es2015": "^6.24.1",
     "express": "^4.17.1",
     "fast-json-stable-stringify": "^2.1.0",

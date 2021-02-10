@@ -1,4 +1,3 @@
-// import { checker } from './checker.js'
 // set global variable
 let newObject
 let newerObject
@@ -8,27 +7,20 @@ let location
 
 // sending a city name and country to get info
 
-// 
 
-
-
-// 
 async function handleSubmit(event) {
-    console.log('DAM FUNCTION')
-
     // halt refress
     event.preventDefault();
-    // grab submitted url text
+    // make sure all outcome sections are cleared or clear all prior search outcomes
     const imageNode = document.getElementById("images");
     imageNode.innerHTML = '';
     const weatherNode = document.getElementById("weather-results");
     weatherNode.innerHTML = '';
     const myNode = document.getElementById("results");
     myNode.innerHTML = '';
-    let formText = document.getElementById('url').value
-    // run url general expression check
-    // const check = checker(formText)
-    // if check is good, run post and get calls. then post outcome to ui
+    // grab submitted city name text
+    let formText = document.getElementById('city').value
+    // if there is text in the city search to submit run api fetch
     if(formText) {
         await postData('http://localhost:8080/geonames-api', {url: formText});
         await fetch('/geonames-api')
@@ -40,16 +32,6 @@ async function handleSubmit(event) {
     // if check is bad alert and populate default failed output
     } else {
         alert('not a valid URL dude.');
-        const errorOutcome = { 
-            status: 'NA',
-            model: 'NA',
-            score_tag: 'NONE',
-            agreement: "NA",
-            subjectivity: "NA",
-            confidence: "NA",
-            irony: "NA"
-        } 
-        setHtml(errorOutcome)
     }
 }
 async function locationSelect(object) {
