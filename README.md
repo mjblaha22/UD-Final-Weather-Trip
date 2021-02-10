@@ -11,6 +11,6 @@ This project uses the Geonames, Weatherbit, and Pixabay Api to see future forcas
 - paste/type of city name and select or not select if you wish to see multiple days of forecast
 - click submit or hit enter
 - multiple possible city locations of the same name will appear for selection
-- on selection a picture associated with the city and forcast will appear
+- on selection of location, a picture associated with the city and forcast will appear
 
 # FE-Develope-Project
